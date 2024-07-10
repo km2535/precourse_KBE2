@@ -1,6 +1,7 @@
 package com.example.precourse.ch3validation.model;
 
 import com.example.precourse.ch3validation.annotation.PhoneNumber;
+import com.example.precourse.ch3validation.annotation.YearMonth;
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import jakarta.validation.constraints.*;
@@ -43,6 +44,9 @@ public class Ch3ValidationUserRegisterRequest {
 
     @FutureOrPresent // 현재 또는 미래
     private LocalDateTime registerAt;
+
+    @YearMonth(pattern = "yyyy-MM")
+    private String birthDayYearMonth;
 
     @AssertTrue(message = "name or nickName은 반드시 1개가 존재해야 합니다.")
     public boolean isNameCheck(){
