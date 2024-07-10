@@ -21,3 +21,9 @@
  - 글로벌 하게 예외 처리하기
  - RestControllerAdvice 어노테이션으로 컨트롤러 만들기
  - ExceptionHandler 어노테이션으로 처리하는 컨트롤러 별도로 만들어서 처리하기
+ - 예외처리의 우선순위설정하기
+### validation 
+- validation 세팅하기
+- validation exception 처리 핸들링 하기 
+- 어노테이션만들기 
+- validation  AssertTrue 이용하기

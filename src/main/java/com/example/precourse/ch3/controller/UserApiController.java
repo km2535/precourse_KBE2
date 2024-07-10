@@ -3,12 +3,14 @@ package com.example.precourse.ch3.controller;
 
 import com.example.precourse.ch3.model.Api;
 import com.example.precourse.ch3.model.UserResponse;
+import org.springframework.boot.context.config.ConfigDataNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.rmi.AccessException;
 import java.util.List;
 
 @RestController
@@ -34,6 +36,9 @@ public class UserApiController {
     public Api<UserResponse> getUser(
             @PathVariable String userId
     ){
+        if(true){
+            throw new RuntimeException("wow");
+        }
         var user = userList.stream()
                 .filter(
                 it -> it.getId().equals(userId)

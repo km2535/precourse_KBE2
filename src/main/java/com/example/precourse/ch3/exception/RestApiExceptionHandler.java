@@ -3,6 +3,7 @@ package com.example.precourse.ch3.exception;
 import com.example.precourse.ch3.model.Api;
 import com.example.precourse.ch3.model.UserResponse;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -12,6 +13,7 @@ import java.util.NoSuchElementException;
 
 @Slf4j
 @RestControllerAdvice(basePackages = "com.example.precourse.ch3.controller")
+@Order(1)
 public class RestApiExceptionHandler {
 
     @ExceptionHandler(value = {Exception.class})
@@ -22,12 +24,12 @@ public class RestApiExceptionHandler {
         return ResponseEntity.status(200).build();
     }
 
-        @ExceptionHandler(value = {IndexOutOfBoundsException.class})
-        public ResponseEntity outOfBound(
-                IndexOutOfBoundsException e
+    @ExceptionHandler(value = {IndexOutOfBoundsException.class})
+    public ResponseEntity outOfBound(
+            IndexOutOfBoundsException e
     ){
-            log.error("outbound :", e);
-            return ResponseEntity.status(200).build();
+        log.error("outbound :", e);
+        return ResponseEntity.status(200).build();
     }
 
     @ExceptionHandler(value = {NoSuchElementException.class})
