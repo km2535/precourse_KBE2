@@ -27,3 +27,6 @@
 - validation exception 처리 핸들링 하기 
 - 어노테이션만들기 
 - validation  AssertTrue 이용하기
+
+## Chapter4
+### Memory DataBase 
