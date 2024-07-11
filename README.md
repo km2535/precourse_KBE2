@@ -30,3 +30,37 @@
 
 ## Chapter4
 ### Memory DataBase 
+
+
+## Chapter5
+### MYSQL & DOCKER
+- MySql과 타입 매칭 시 주의
+  - int primitive 타입을 사용하면 default의 값이 0이기 때문에 null 또는 not null 옵션을 가진 sql 타입과 타입 매칭 에러가 
+  발생 할 수 있으므로 reference타입을 사용해야 한다.(int x , Integer)
+
+## Chapter6
+### JDBC와 JPA
+- 데이터베이스 연결
+- JDBC는 날것의 로우한 코드를 작성하게 되어 굉장히 번거로움
+- JPA를 통해 JAVA ORM 기술에 대한 인터페이스
+  - 인터페이스를 통해 데이터베이스에 접근 할 수 있도록 함
+### Hibernate 
+- JPA의 인터페이스를 구현한 라이브러리 
+- 구현체를 좀 더 쉽게 이용할 수 있도록 구현한 라이브러리 
+```java
+EntityManager entityManager= entityManager.getTransaction().begin();
+var user = new User(“홍길동”, 20, “hong@gmail.com”);
+entityManager.persist(user);
+entityManager.getTransaction().commit();
+entityManager.close();
+```
+위와 같이 개선 되어도 번거로움이 존재한다.
+스프링은 어노테이션으로 작성 할 수 있도록 도와줌
+```java
+@Transactional
+public User save(User user) {
+return userRepository.save(user);
+}
+```
+ 
+ 
